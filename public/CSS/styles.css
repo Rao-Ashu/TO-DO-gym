@@ -1,0 +1,189 @@
+html{
+  /* background-color: #EEE3CB; */
+  background-image: -webkit-linear-gradient(65deg, #395B64 50%, #E7F6F2 50%);
+  min-height: 650px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+img{
+  position: absolute;
+  z-index: -1;
+}
+
+.nutrition{
+  width: 12rem;
+  left: 14rem;
+  top:22rem;
+  transform: rotate(-25deg);
+
+}
+
+.barbell{
+  right: 5rem;
+  width: 15rem;
+  bottom: 10rem;
+
+}
+.flexing{
+  bottom: 9rem;
+  width: 8rem;
+  left: 0rem;
+  transform: rotate(15deg);
+
+}
+.gym{
+  top: 8rem;
+  left: 8rem;
+  width: 6rem;
+  transform: rotate(15deg);
+
+}
+
+.biceps{
+  top: 1rem;
+  left: 18rem;
+  width: 5rem;
+  transform: rotate(-25deg);
+}
+
+
+
+
+footer{
+  margin-top: 2rem;
+  color: #fff;
+
+}
+
+h1{
+  color: #fff;
+  margin-bottom: 0.1rem;
+  padding-top: 0.5rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #395B64;
+}
+
+input[type="checkbox"] {
+  margin: 1rem;
+
+}
+
+input[type="text"] {
+  text-align: center;
+  height: 2rem;
+  border: none;
+  /* background: transparent; */
+  font-size: 1rem;
+  font-weight: 200;
+  outline: none;
+  margin: auto;
+}
+
+.addItemBtn{
+  border-radius: 50%;
+  background-color: #395B64;
+  color: white;
+  font-size: 1.8rem;
+  border-style: none;
+  width: 2.3rem;
+  height: 2.3rem;
+  margin: 0.2rem 0.5rem;
+}
+
+.deleteItemBtn{
+  background-color: white;
+  color: grey;
+  position: absolute;
+  right: 0.2rem;
+  border: none;
+  margin: auto auto;
+  top: 1rem;;
+}
+.deleteItemBtn:hover{
+  color: black;
+}
+
+
+.box{
+  width: 25rem;
+  margin: 0.5rem auto;
+  border-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
+  background: white;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+
+  /* text-align: centre; */
+}
+
+
+.item{
+  min-height: 3rem;
+  display: flex;
+  border-bottom: 1px solid #F1F1F1;
+  position: relative;
+  word-break: break-all;
+}
+
+.inputItem{
+  inline-size:16rem;
+  text-align: left;
+}
+
+.quantity{
+  width: 2.5rem;
+  height: 2rem;
+  position: absolute;
+  right: 1.5rem;
+  top: 0.35rem;
+  margin: auto auto;
+}
+
+
+#bottom{
+  display: flex;
+}
+
+#heading{
+  background-color: #395B64;
+  text-align: center;
+  height: 3rem;
+  width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.4rem;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+
+}
+
+#middle{
+  position: relative;
+}
+
+
+
+@media (max-width: 800px) {
+  #photo{
+    position: absolute;
+    z-index: -1;
+    transform: rotate(0);
+    width: 0;
+    margin: 0 auto 0 auto;
+  }
+
+  .nutrition{
+    width: 0rem;
+  }
+  .gym{
+    width: 0rem;
+  }
+}

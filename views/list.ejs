@@ -1,0 +1,55 @@
+<%- include('header'); -%>
+
+<div id="heading" class="">
+  <h1><%= presentDay %></h1>
+
+</div>
+
+<div id="photo">
+  <img src="images/nutrition.png" class="nutrition">
+  <img src="images/barbell.png" class="barbell">
+  <img src="images/gym.png" class="gym">
+  <img src="images/flexing.png" class="flexing">
+  <img src="images/biceps.png" class="biceps">
+</div>
+
+
+
+<div id="middle" class="">
+  <form action="/" method="post">
+
+    <div class="box">
+      <div class="item">
+        <input type="checkbox">
+        <p>Warm-up</p>
+
+      </div>
+
+      <% for(var i=0; i<itemList.length; i++){ %>
+      <div class="item">
+        <input type="checkbox">
+        <div class="inputItem">
+          <p><%= itemList[i] %></p>
+        </div>
+        <input type="number" class="quantity" name="quantity" min="1" placeholder="sets">
+        <button class="deleteItemBtn" type="submit" name="delete">x</button>
+      </div>
+      <% } %>
+
+      <div class="item">
+        <input type="checkbox">
+        <p>Cool-down</p>
+      </div>
+
+      <div id="bottom" >
+        <input type="text" name="addNew" placeholder="Add new workout" autocomplete="off">
+        <button class="addItemBtn" type="submit" name="button">+</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+
+<%- include('footer'); -%>
