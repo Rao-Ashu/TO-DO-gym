@@ -1,10 +1,14 @@
 <%- include('header'); -%>
 
+
+<!-- HEADING DAY -->
 <div id="heading" class="">
   <h1><%= presentDay %></h1>
-
 </div>
 
+
+
+<!-- IMAGES -->
 <div id="photo">
   <img src="images/nutrition.png" class="nutrition">
   <img src="images/barbell.png" class="barbell">
@@ -15,34 +19,47 @@
 
 
 
+
+<!-- WORKOUTS -->
 <div id="middle" class="">
   <form action="/" method="post">
 
     <div class="box">
+
+      <!-- FIXED_TOP_warmUp -->
       <div class="item">
         <input type="checkbox">
-        <p>Warm-up</p>
-
+        <p class="warmup">Warm-up</p>
+        <p class="topSetWord">sets🔻</p>
       </div>
 
+
+      <!-- NEWLY ADDED -->
       <% for(var i=0; i<itemList.length; i++){ %>
       <div class="item">
         <input type="checkbox">
         <div class="inputItem">
           <p><%= itemList[i] %></p>
+          <p class="itemSet"><%= setList[i] %></p>
         </div>
-        <input type="number" class="quantity" name="quantity" min="1" placeholder="sets">
         <button class="deleteItemBtn" type="submit" name="delete">x</button>
       </div>
       <% } %>
 
+
+      <!-- FIXED_BOTTOM_cooldown -->
       <div class="item">
         <input type="checkbox">
         <p>Cool-down</p>
       </div>
 
+
+
+      <!-- INPUTS_ADDbtn -->
       <div id="bottom" >
-        <input type="text" name="addNew" placeholder="Add new workout" autocomplete="off">
+        <button class="resetBtn" type="submit" name="reset">reset</button>
+        <input type="text" name="addNew" placeholder="Add new workout" autocomplete="off" class="workoutInput">
+        <input type="text" name="setNo" placeholder="sets" autocomplete="off" class="setInput">
         <button class="addItemBtn" type="submit" name="button">+</button>
       </div>
 
