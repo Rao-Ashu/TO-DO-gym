@@ -42,7 +42,7 @@
           <p><%= itemList[i] %></p>
           <p class="itemSet"><%= setList[i] %></p>
         </div>
-        <button class="deleteItemBtn" type="submit" name="delete">x</button>
+        <button class="deleteItemBtn" type="submit" name="delete" value="<%= itemList[i] %>">x</button>
       </div>
       <% } %>
 
@@ -57,7 +57,7 @@
 
       <!-- INPUTS_ADDbtn -->
       <div id="bottom" >
-        <button class="resetBtn" type="submit" name="reset">reset</button>
+        <button class="resetBtn" type="submit" name="resetbtn">reset</button>
         <input type="text" name="addNew" placeholder="Add new workout" autocomplete="off" class="workoutInput">
         <input type="text" name="setNo" placeholder="sets" autocomplete="off" class="setInput">
         <button class="addItemBtn" type="submit" name="button">+</button>
