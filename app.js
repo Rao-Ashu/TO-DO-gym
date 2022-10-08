@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 //DATABASE require and connection
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/todoDB");
+mongoose.connect("mongodb+srv://admin-ashu:Ashuatlas@cluster0.0wu4yqu.mongodb.net/todoDB");
 
 
 const app = express();
