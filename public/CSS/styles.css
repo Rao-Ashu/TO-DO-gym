@@ -1,9 +1,14 @@
 html{
-  /* background-color: #EEE3CB; */
+  /* background-color: #E7F6F2; */
   background-image: -webkit-linear-gradient(65deg, #395B64 50%, #E7F6F2 50%);
-  min-height: 650px;
   font-family: sans-serif;
   text-align: center;
+  min-height: 580px;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1{
@@ -41,41 +46,42 @@ h1{
 img{
   position: absolute;
   z-index: -1;
+
 }
 
 .nutrition{
-  width: 12rem;
-  left: 14rem;
-  top:22rem;
+  max-width: 15%;
+  left: 20%;
+  top:20rem;
   transform: rotate(-25deg);
 
 }
 
 .barbell{
-  right: 5rem;
-  width: 15rem;
-  bottom: 10rem;
+  right: 5%;
+  max-width: 20%;
+  top: 10rem;
 
 }
 .flexing{
-  bottom: 9rem;
-  width: 8rem;
-  left: 0rem;
+  top: 15rem;
+  max-width: 12%;
+  left: 0%;
   transform: rotate(15deg);
 
 }
 .gym{
   top: 8rem;
-  left: 8rem;
-  width: 6rem;
+  left: 12%;
+  max-width: 8%;
   transform: rotate(15deg);
 
 }
 
 .biceps{
   top: 1rem;
-  left: 18rem;
-  width: 5rem;
+  left: 20%;
+  max-width: 8%;
   transform: rotate(-25deg);
 }
 
@@ -245,24 +251,12 @@ footer{
 
 
 
-
-
-
-
 /* SCREEN_ADJUSTMENTS */
 @media (max-width: 800px) {
-  #photo{
-    position: absolute;
-    z-index: -1;
-    transform: rotate(0);
-    width: 0;
-    margin: 0 auto 0 auto;
-  }
-
-  .nutrition{
-    width: 0rem;
-  }
-  .gym{
-    width: 0rem;
+  html{
+    background-color:  #395B64 ;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
   }
 }

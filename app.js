@@ -1,6 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+//DATABASE require and connection
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/todoDB");
+
+
 const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({
@@ -8,9 +13,22 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-var items = [];
-var setCount = [];
+
+// DATABASE Schema and Model
+const itemSchema = new mongoose.Schema({
+  name: String,
+  set: Number,
+});
+
+const Item = new mongoose.model("Item", itemSchema);
+
+
+
+
+
 app.get('/', function(req, res) {
+
+  //today date
   var day = new Date();
   var options = {
     day: "numeric",
@@ -20,52 +38,70 @@ app.get('/', function(req, res) {
 
   var today = day.toLocaleDateString("en-US", options);
 
-  res.render('list', {
-    presentDay: today,
-    itemList: items,
-    setList: setCount
-  });
+
+  // NEW EXERCISES
+  Item.find({}, function(err,databaseList) {
+      res.render('list', {presentDay: today, itemList: databaseList});
+  })
 });
+
+
+
+
+
 
 app.post('/', function(req, res) {
 
-  // new_items
-  var newItemSetCount = req.body.setNo;
-  var newItemAdded = req.body.addNew;
+      // new_items
+      var newItemSetCount = req.body.setNo;
+      var newItemAdded = req.body.addNew;
 
-  if (newItemAdded.length != 0) {
-    items.push(newItemAdded);
-  }
+      if (newItemAdded.length != 0 && newItemSetCount > 0) {
+        const ex1 = new Item({
+          name: newItemAdded,
+          set: newItemSetCount
+        });
+        ex1.save();
+        res.redirect("/");
+      } else if (newItemAdded.length != 0 && newItemSetCount <= 0) {
+        const ex1 = new Item({
+          name: req.body.addNew,
+          set: 0
+        });
+        ex1.save();
+        res.redirect("/");
+      }else{
+        res.redirect("/");
+      }
 
 
-  if (newItemSetCount > 0) {
-    setCount.push(newItemSetCount);
-  } else if (newItemSetCount <= 0) {
-    setCount.push('0');
-  }
 
 
-  // RESETbtn
-  if (req.body.resetbtn === '') {
-    setCount = [];
-    items = [];
-  }
+      // RESETbtn
+      if (req.body.resetbtn === '') {
+        Item.deleteMany({},function(err){
+          if(!err){
+            //console.log("Successfully deleted whole collection.");
+            // res.redirect("/");
+          }
+        });
+      }
 
-  // DELETEbtn
-  if (req.body.delete) {
-    // var a = document.getElementById("button");
-    // console.log(a);
-    // console.log(req.body);
-
-    const index = items.indexOf(req.body.delete);
-    if (index > -1) { // only splice array when item is found
-      items.splice(index, 1);
-      setCount.splice(index, 1);
-    }
-  }
-
-  res.redirect('/');
+      // DELETEbtn
+      if (req.body.delete) {
+        Item.findByIdAndRemove(req.body.delete, function(err){
+          if (!err) {
+            //console.log("Successfully deleted checked item.");
+            // res.redirect("/");
+          }
+        });
+      };
 });
 
 
-app.listen(process.env.PORT || 3000);
+
+
+
+app.listen(process.env.PORT || 3000, function(){
+  //console.log("server chl rha h");
+});

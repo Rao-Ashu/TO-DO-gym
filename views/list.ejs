@@ -35,16 +35,20 @@
 
 
       <!-- NEWLY ADDED -->
+
       <% for(var i=0; i<itemList.length; i++){ %>
-      <div class="item">
-        <input type="checkbox">
-        <div class="inputItem">
-          <p><%= itemList[i] %></p>
-          <p class="itemSet"><%= setList[i] %></p>
+        <div class="item">
+          <input type="checkbox">
+          <div class="inputItem">
+            <p><%= itemList[i].name %></p>
+            <p class="itemSet"><%= itemList[i].set %></p>
+          </div>
+          <button class="deleteItemBtn" type="submit" name="delete" value="<%= itemList[i]._id %>">x</button>
         </div>
-        <button class="deleteItemBtn" type="submit" name="delete" value="<%= itemList[i] %>">x</button>
-      </div>
-      <% } %>
+      <% };%>
+
+
+
 
 
       <!-- FIXED_BOTTOM_cooldown -->
